@@ -12,6 +12,8 @@
 		3057CEA321804D7600EFDDF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3057CEA121804D7600EFDDF1 /* Main.storyboard */; };
 		3057CEA521804D7800EFDDF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3057CEA421804D7800EFDDF1 /* Assets.xcassets */; };
 		3057CEA821804D7800EFDDF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3057CEA621804D7800EFDDF1 /* LaunchScreen.storyboard */; };
+		3057CEB021805AE900EFDDF1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057CEAF21805AE900EFDDF1 /* TableViewController.swift */; };
+		3057CEB221816A6800EFDDF1 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057CEB121816A6800EFDDF1 /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3057CEA421804D7800EFDDF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3057CEA721804D7800EFDDF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3057CEA921804D7800EFDDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3057CEAF21805AE900EFDDF1 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3057CEB121816A6800EFDDF1 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				3057CEA421804D7800EFDDF1 /* Assets.xcassets */,
 				3057CEA621804D7800EFDDF1 /* LaunchScreen.storyboard */,
 				3057CEA921804D7800EFDDF1 /* Info.plist */,
+				3057CEAF21805AE900EFDDF1 /* TableViewController.swift */,
+				3057CEB121816A6800EFDDF1 /* ViewController2.swift */,
 			);
 			path = MakeListApp2;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3057CEA021804D7600EFDDF1 /* ViewController.swift in Sources */,
+				3057CEB221816A6800EFDDF1 /* ViewController2.swift in Sources */,
+				3057CEB021805AE900EFDDF1 /* TableViewController.swift in Sources */,
 				3057CE9E21804D7600EFDDF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
