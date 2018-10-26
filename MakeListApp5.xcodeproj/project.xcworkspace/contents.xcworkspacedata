@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MakeListApp2.xcodeproj">
+      location = "self:/Users/ykato/swift-camp/MakeListApp5/MakeListApp5.xcodeproj">
    </FileRef>
 </Workspace>

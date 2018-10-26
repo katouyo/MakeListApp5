@@ -10,8 +10,12 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    var appDelegate:AppDelegate =  UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    var names = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        names = appDelegate.names1
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,28 +23,67 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadView()
+        viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        if let viewControllers = self.navigationController?.viewControllers {
+            var existsSelfInViewControllers = true
+            for viewController in viewControllers {
+                // viewWillDisappearが呼ばれる時に、
+                // 戻る処理を行っていれば、NavigationControllerのviewControllersの中にselfは存在していない
+                if viewController == self {
+                    existsSelfInViewControllers = false
+                    // selfが存在した時点で処理を終える
+                    break
+                }
+            }
+            
+            if existsSelfInViewControllers {
+                appDelegate.names1 = [String]()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return names.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        // セルのオブジェクトを作成します。
+        // "NameCell" の部分はStoryboardでセルに設定したIdentifierを指定しています。
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+     
+        // namesから該当する行の文字列を取得してセルに設定します。
+        // indexPath.rowで何行目かわかります。
+        cell.textLabel?.text = names[indexPath.row]
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            names.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            appDelegate.names1 = names
+        }
+    }
+    
+//    @IBAction func backToList(segue: UIStoryboardSegue) {}
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +129,6 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func backToList(segue: UIStoryboardSegue) {}
+    
 }
